@@ -20,9 +20,9 @@ namespace TaskFormApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            string data = ReadFile();
+            string data = await ReadFileAsync();
 
             richTextBoxDosya.Text = data;
         }
@@ -53,6 +53,20 @@ namespace TaskFormApp
 
             return data;
 
+        }
+
+        private async Task<string> ReadFileAsync()
+        {
+            string data = string.Empty;
+            using (StreamReader s = new StreamReader("dosya.TXT"))
+            {
+                Task<string> mytask = s.ReadToEndAsync();
+
+                await Task.Delay(5000);
+
+                data = await mytask;
+                return data;
+            }
         }
     }
 }
