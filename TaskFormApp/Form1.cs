@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,7 +23,13 @@ namespace TaskFormApp
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            string data = await ReadFileAsync();
+            string data = String.Empty;
+
+            Task<string> okuma = ReadFileAsync();
+
+            richTextBox2.Text = await new HttpClient().GetStringAsync("https://www.google.com");
+
+            data = await okuma;
 
             richTextBoxDosya.Text = data;
         }
@@ -67,6 +74,11 @@ namespace TaskFormApp
                 data = await mytask;
                 return data;
             }
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
