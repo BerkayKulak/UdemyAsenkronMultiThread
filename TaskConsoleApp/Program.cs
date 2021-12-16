@@ -7,60 +7,35 @@ using System.Threading.Tasks;
 
 namespace TaskConsoleApp
 {
-    public class Content
+
+    public class Status
     {
-        public string Site { get; set; }
-        public int Len { get; set; }
+        public int ThreadId { get; set; }
+        public DateTime date { get; set; }
+
     }
+
     class Program
     {
         private async static Task Main(string[] args)
         {
-            Console.WriteLine("Main Thread:"+Thread.CurrentThread.ManagedThreadId);
-            List<string> urlList = new List<string>()
-            {
-                "https://www.google.com",
-                "https://www.microsoft.com",
-                "https://www.amazon.com",
-                "https://www.n11.com",
-                "https://www.haberturk.com"
-            };
 
-            List<Task<Content>> taskList = new List<Task<Content>>();
-            urlList.ToList().ForEach(x =>
+            var myTask = Task.Factory.StartNew((Obj) =>
             {
-                taskList.Add(GetContentAsync(x));
+                Console.WriteLine("myTask çalıştı");
+                var status = Obj as Status;
+                status.ThreadId = Thread.CurrentThread.ManagedThreadId;
+            }, new Status()
+            {
+                date = DateTime.Now
             });
 
-            Console.WriteLine("waitAll metodundan önce");
-            bool result = Task.WaitAll(taskList.ToArray(),3000);
+            await myTask;
 
-            var contents =  await Task.WhenAll(taskList.ToArray());
-
-            contents.ToList().ForEach(x =>
-            {
-                Console.WriteLine(x.Site);
-            });
-
-          
-
-
+            Status s = myTask.AsyncState as Status;
+            Console.WriteLine(s.date);
+            Console.WriteLine(s.ThreadId);
 
         }
-
-        public  static async Task<Content> GetContentAsync(string url)
-        {
-            Content c = new Content();
-            var data = await new HttpClient().GetStringAsync(url);
-
-            await  Task.Delay(3000);
-            c.Site = url;
-            c.Len = data.Length;
-            Console.WriteLine("Get ContentAsync thread" + Thread.CurrentThread.ManagedThreadId);
-            return c;
-        }
-
     }
-
-
 }

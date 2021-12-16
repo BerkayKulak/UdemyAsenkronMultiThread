@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextWebApp.API", "TextWebAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskConsoleApp", "TaskConsoleApp\TaskConsoleApp.csproj", "{B3F67982-EE3B-43C8-B052-A947FA8AC3E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskThreadApp", "TaskThreadApp\TaskThreadApp.csproj", "{CD1C68A0-6956-4815-AA23-D2707CAF4985}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B3F67982-EE3B-43C8-B052-A947FA8AC3E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3F67982-EE3B-43C8-B052-A947FA8AC3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3F67982-EE3B-43C8-B052-A947FA8AC3E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD1C68A0-6956-4815-AA23-D2707CAF4985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1C68A0-6956-4815-AA23-D2707CAF4985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD1C68A0-6956-4815-AA23-D2707CAF4985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1C68A0-6956-4815-AA23-D2707CAF4985}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
