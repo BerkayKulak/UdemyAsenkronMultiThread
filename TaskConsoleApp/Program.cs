@@ -32,9 +32,13 @@ namespace TaskConsoleApp
                 taskList.Add(GetContentAsync(x));
             });
 
-            var FirstData = await Task.WhenAny(taskList);
+            Console.WriteLine("waitAll metodundan önce");
+            bool result = Task.WaitAll(taskList.ToArray(),3000);
 
-            Console.WriteLine($"{FirstData.Result.Site} - {FirstData.Result.Len}");
+            Console.WriteLine("3 saniyede geldi mi" + result);
+            Console.WriteLine("waitAll metodundan sonra");
+            Console.WriteLine($"{taskList.First().Result.Site} - {taskList.First().Result.Len}");
+
 
 
         }
