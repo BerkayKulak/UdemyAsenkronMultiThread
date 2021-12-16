@@ -35,10 +35,14 @@ namespace TaskConsoleApp
             Console.WriteLine("waitAll metodundan önce");
             bool result = Task.WaitAll(taskList.ToArray(),3000);
 
-            var firstTaskIndex = Task.WaitAny(taskList.ToArray());
+            var contents =  await Task.WhenAll(taskList.ToArray());
 
-           
-            Console.WriteLine($"{taskList[firstTaskIndex].Result.Site} - {taskList[firstTaskIndex].Result.Len}");
+            contents.ToList().ForEach(x =>
+            {
+                Console.WriteLine(x.Site);
+            });
+
+          
 
 
 
@@ -48,11 +52,14 @@ namespace TaskConsoleApp
         {
             Content c = new Content();
             var data = await new HttpClient().GetStringAsync(url);
+
+            await  Task.Delay(3000);
             c.Site = url;
             c.Len = data.Length;
             Console.WriteLine("Get ContentAsync thread" + Thread.CurrentThread.ManagedThreadId);
             return c;
         }
+
     }
 
 
