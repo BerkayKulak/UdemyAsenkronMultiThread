@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
@@ -17,25 +18,28 @@ namespace TaskConsoleApp
 
     class Program
     {
+        public static string CacheData { get; set; }
+
         private async static Task Main(string[] args)
         {
+            CacheData = await GetDataAsync();
 
-            var myTask = Task.Factory.StartNew((Obj) =>
+            Console.WriteLine(CacheData);
+        }
+
+        public static Task<string> GetDataAsync()
+        {
+           
+
+            if (string.IsNullOrEmpty((CacheData)))
             {
-                Console.WriteLine("myTask çalıştı");
-                var status = Obj as Status;
-                status.ThreadId = Thread.CurrentThread.ManagedThreadId;
-            }, new Status()
+                return File.ReadAllTextAsync("dosya.TXT");
+
+            }
+            else
             {
-                date = DateTime.Now
-            });
-
-            await myTask;
-
-            Status s = myTask.AsyncState as Status;
-            Console.WriteLine(s.date);
-            Console.WriteLine(s.ThreadId);
-
+                return Task.FromResult(CacheData);
+            }
         }
     }
 }
