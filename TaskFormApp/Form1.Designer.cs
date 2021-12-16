@@ -29,13 +29,71 @@ namespace TaskFormApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.BtnReadFile = new System.Windows.Forms.Button();
+            this.richTextBoxDosya = new System.Windows.Forms.RichTextBox();
+            this.btnCounter = new System.Windows.Forms.Button();
+            this.textBoxCounter = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // BtnReadFile
+            // 
+            this.BtnReadFile.Location = new System.Drawing.Point(38, 28);
+            this.BtnReadFile.Name = "BtnReadFile";
+            this.BtnReadFile.Size = new System.Drawing.Size(75, 23);
+            this.BtnReadFile.TabIndex = 0;
+            this.BtnReadFile.Text = "Dosya Oku";
+            this.BtnReadFile.UseVisualStyleBackColor = true;
+            this.BtnReadFile.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // richTextBoxDosya
+            // 
+            this.richTextBoxDosya.Location = new System.Drawing.Point(38, 101);
+            this.richTextBoxDosya.Name = "richTextBoxDosya";
+            this.richTextBoxDosya.Size = new System.Drawing.Size(100, 96);
+            this.richTextBoxDosya.TabIndex = 1;
+            this.richTextBoxDosya.Text = "";
+            this.richTextBoxDosya.TextChanged += new System.EventHandler(this.richTextBoxDosya_TextChanged);
+            // 
+            // btnCounter
+            // 
+            this.btnCounter.Location = new System.Drawing.Point(282, 28);
+            this.btnCounter.Name = "btnCounter";
+            this.btnCounter.Size = new System.Drawing.Size(75, 23);
+            this.btnCounter.TabIndex = 2;
+            this.btnCounter.Text = "Sayaç Arttır";
+            this.btnCounter.UseVisualStyleBackColor = true;
+            this.btnCounter.Click += new System.EventHandler(this.btnCounter_Click);
+            // 
+            // textBoxCounter
+            // 
+            this.textBoxCounter.Location = new System.Drawing.Point(282, 101);
+            this.textBoxCounter.Name = "textBoxCounter";
+            this.textBoxCounter.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCounter.TabIndex = 3;
+            this.textBoxCounter.TextChanged += new System.EventHandler(this.textBoxCounter_TextChanged);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBoxCounter);
+            this.Controls.Add(this.btnCounter);
+            this.Controls.Add(this.richTextBoxDosya);
+            this.Controls.Add(this.BtnReadFile);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button BtnReadFile;
+        private System.Windows.Forms.RichTextBox richTextBoxDosya;
+        private System.Windows.Forms.Button btnCounter;
+        private System.Windows.Forms.TextBox textBoxCounter;
     }
 }
 
