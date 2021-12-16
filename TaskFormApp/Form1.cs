@@ -69,6 +69,8 @@ namespace TaskFormApp
             {
                 Task<string> mytask = s.ReadToEndAsync();
 
+                // başka işlemler varsa
+
                 await Task.Delay(5000);
 
                 data = await mytask;
@@ -78,10 +80,11 @@ namespace TaskFormApp
 
         private Task<string> ReadFileAsync2()
         {
-            using (StreamReader s = new StreamReader("dosya.TXT"))
-            {
-                return s.ReadToEndAsync();
-            }
+            StreamReader s = new StreamReader("dosya.TXT");
+
+
+            return s.ReadToEndAsync();
+
         }
 
         private void richTextBox2_TextChanged(object sender, EventArgs e)
