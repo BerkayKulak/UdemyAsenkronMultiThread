@@ -32,12 +32,9 @@ namespace TaskConsoleApp
                 taskList.Add(GetContentAsync(x));
             });
 
-            var contents = await Task.WhenAll(taskList.ToArray());
+            var FirstData = await Task.WhenAny(taskList);
 
-            contents.ToList().ForEach(x =>
-            {
-                Console.WriteLine($"{x.Site} boyut {x.Len}");
-            });
+            Console.WriteLine($"{FirstData.Result.Site} - {FirstData.Result.Len}");
 
 
         }
