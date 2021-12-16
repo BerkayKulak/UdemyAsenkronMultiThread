@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskFormApp", "TaskFormApp\TaskFormApp.csproj", "{8BD6FB29-00FC-4B41-8AF8-B7358B398FDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextWebApp.API", "TextWebApp.API\TextWebApp.API.csproj", "{CBB210C3-6F5D-4A11-A7C5-9F7627A2271D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8BD6FB29-00FC-4B41-8AF8-B7358B398FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BD6FB29-00FC-4B41-8AF8-B7358B398FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BD6FB29-00FC-4B41-8AF8-B7358B398FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB210C3-6F5D-4A11-A7C5-9F7627A2271D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB210C3-6F5D-4A11-A7C5-9F7627A2271D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB210C3-6F5D-4A11-A7C5-9F7627A2271D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB210C3-6F5D-4A11-A7C5-9F7627A2271D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
