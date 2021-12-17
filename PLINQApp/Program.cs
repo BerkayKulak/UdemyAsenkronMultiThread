@@ -11,32 +11,27 @@ namespace PLINQApp
         {
             AdventureWorks2017Context context = new AdventureWorks2017Context();
 
-            //var product = (from p in context.Products.AsParallel()
-            //               where p.ListPrice > 10M
-            //               select p).Take(10);
+            var products = context.Products.Take(10).ToArray();
 
-            //var product2 = context.Products.AsParallel().Where(p => p.ListPrice > 10M).Take(10);
+            products[3].Name = "##";
 
-            //product.ForAll(x =>
-            //{
-            //    Console.WriteLine(x.Name);
-            //});
+            var query = products.AsParallel().Where(p => p.Name[2] == 'a');
 
-
-            context.Products.AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism).ForAll(p =>
+            try
             {
-                Console.WriteLine(p.Name);
-            });
-
-
-            //var product2 = (from p in context.Products
-            //    where p.ListPrice > 10M
-            //    select p).Take(10);
-
-            //product2.ToList().ForEach(x =>
-            //{
-            //    Console.WriteLine(x.Name);
-            //});
+                query.ForAll(x =>
+                {
+                    Console.WriteLine($"{x.Name}");
+                });
+            }
+            catch (AggregateException e)
+            {
+                e.InnerExceptions.ToList().ForEach(x =>
+                {
+                    Console.WriteLine($"{x.Message}");
+                });
+               
+            }
 
         }
     }
