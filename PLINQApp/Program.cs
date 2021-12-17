@@ -1,28 +1,19 @@
 ﻿using System;
 using System.Linq;
+using PLINQApp.Models;
 
 namespace PLINQApp
 {
     class Program
     {
-        private static bool islem(int x)
-        {
-            return x % 2 == 0;
-        }
+        
         static void Main(string[] args)
         {
-            var array = Enumerable.Range(1, 500).ToList();
+            AdventureWorks2017Context context = new AdventureWorks2017Context();
 
-            var newArray = array.AsParallel().Where(islem);
-
-            //newArray.ToList().ForEach(x =>
-            //{
-            //    Console.WriteLine(x);
-            //});
-
-            newArray.ForAll(x =>
+            context.Products.Take(10).ToList().ForEach(x =>
             {
-                Console.WriteLine(x);
+                Console.WriteLine(x.Name);
             });
         }
     }
