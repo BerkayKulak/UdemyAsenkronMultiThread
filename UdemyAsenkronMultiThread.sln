@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskThreadApp", "TaskThread
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskCancellationFormApp", "TaskCancellationFormApp\TaskCancellationFormApp.csproj", "{003C57BB-FD19-4E73-8B26-BA374F406764}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPLCancelletionForm", "TPLCancelletionForm\TPLCancelletionForm.csproj", "{BAD90D83-80FA-4312-AE54-64CB3745761F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{003C57BB-FD19-4E73-8B26-BA374F406764}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{003C57BB-FD19-4E73-8B26-BA374F406764}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{003C57BB-FD19-4E73-8B26-BA374F406764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAD90D83-80FA-4312-AE54-64CB3745761F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAD90D83-80FA-4312-AE54-64CB3745761F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAD90D83-80FA-4312-AE54-64CB3745761F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAD90D83-80FA-4312-AE54-64CB3745761F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
