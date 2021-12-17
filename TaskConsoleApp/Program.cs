@@ -9,37 +9,18 @@ using System.Threading.Tasks;
 namespace TaskConsoleApp
 {
 
-    public class Status
-    {
-        public int ThreadId { get; set; }
-        public DateTime date { get; set; }
-
-    }
-
     class Program
     {
-        public static string CacheData { get; set; }
-
+        
         private async static Task Main(string[] args)
         {
-            CacheData = await GetDataAsync();
-
-            Console.WriteLine(CacheData);
+            Console.WriteLine(GetData());
         }
 
-        public static Task<string> GetDataAsync()
+        public static string GetData()
         {
-           
-
-            if (string.IsNullOrEmpty((CacheData)))
-            {
-                return File.ReadAllTextAsync("dosya.TXT");
-
-            }
-            else
-            {
-                return Task.FromResult(CacheData);
-            }
+            var task = new HttpClient().GetStringAsync("https://www.google.com");
+            return task.Result;
         }
     }
 }
