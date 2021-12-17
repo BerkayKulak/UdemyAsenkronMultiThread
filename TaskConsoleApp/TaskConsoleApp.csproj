@@ -6,9 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="dosya.TXT">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resim\thumbnailNoParallel\" />
+    <Folder Include="resim\thumbnailParallel\" />
   </ItemGroup>
 
 </Project>

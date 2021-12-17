@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -14,23 +16,29 @@ namespace TaskConsoleApp
     {
         private async static Task Main(string[] args)
         {
-            Console.WriteLine("1. adım");
+            long FileByte = 0;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            string picturesPath =
+                "C:\\Users\\Excalibur\\source\\repos\\UdemyAsenkronMultiThread\\TaskConsoleApp\\resim";
 
-            var task = GetContent();
+            var files = Directory.GetFiles(picturesPath);
 
-            Console.WriteLine("2. adım");
+            Parallel.ForEach(files, (item) =>
+            {
+                Console.WriteLine("Thread no: " + Thread.CurrentThread.ManagedThreadId);
+                Image img = new Bitmap(item);
 
-            var content =   await task;
+                FileInfo f = new FileInfo(item);
 
-            Console.WriteLine("3. adım" + content.Length);
+                Interlocked.Add(ref FileByte, f.Length);
+
+            });
+
+
+            Console.WriteLine("toplam boyut: " + FileByte.ToString());
 
         }
 
-        public static async Task<string> GetContent()
-        {
-            var content = await new HttpClient().GetStringAsync("https://www.google.com");
-
-            return content;
-        }
     }
 }
