@@ -11,16 +11,18 @@ namespace TaskConsoleApp
 
     class Program
     {
+        public static int CacheData { get; set; } = 150;
         
         private async static Task Main(string[] args)
         {
-            Console.WriteLine(GetData());
+
+            await GetData();
         }
 
-        public static string GetData()
+        public static ValueTask<int> GetData()
         {
-            var task = new HttpClient().GetStringAsync("https://www.google.com");
-            return task.Result;
+            return new ValueTask<int>(CacheData);
         }
+
     }
 }
