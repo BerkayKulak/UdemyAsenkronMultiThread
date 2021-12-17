@@ -16,16 +16,18 @@ namespace TaskConsoleApp
     {
         private async static Task Main(string[] args)
         {
-            int deger = 0;
-
-            Parallel.ForEach(Enumerable.Range(1, 100000).ToList(), (x) =>
+            int total = 0;
+            Parallel.ForEach(Enumerable.Range(1, 100).ToList(), () => 0, (x, loop, subtotal) =>
             {
-                deger = x;
-            });
+                subtotal += x;
+                return subtotal;
+            },(y) => Interlocked.Add(ref total,y));
+            // Actionlar data dönmeyen
+            // Functionlar Değer dönen
 
-            Console.WriteLine(deger);
-
+            Console.WriteLine(total);
         }
+
 
     }
 }
