@@ -16,27 +16,14 @@ namespace TaskConsoleApp
     {
         private async static Task Main(string[] args)
         {
-            long FileByte = 0;
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            string picturesPath =
-                "C:\\Users\\Excalibur\\source\\repos\\UdemyAsenkronMultiThread\\TaskConsoleApp\\resim";
+            int deger = 0;
 
-            var files = Directory.GetFiles(picturesPath);
-
-            Parallel.ForEach(files, (item) =>
+            Parallel.ForEach(Enumerable.Range(1, 100000).ToList(), (x) =>
             {
-                Console.WriteLine("Thread no: " + Thread.CurrentThread.ManagedThreadId);
-                Image img = new Bitmap(item);
-
-                FileInfo f = new FileInfo(item);
-
-                Interlocked.Add(ref FileByte, f.Length);
-
+                deger = x;
             });
 
-
-            Console.WriteLine("toplam boyut: " + FileByte.ToString());
+            Console.WriteLine(deger);
 
         }
 
